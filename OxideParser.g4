@@ -26,7 +26,7 @@ parameterList
     ;
  
 parameter
-    : type 
+    : type identifier
     ;
  
 functionBody
@@ -34,6 +34,13 @@ functionBody
     ;
 
 type
+    : type '~' #mutableType
+    | type '*' #rawPointerType
+    | type '&' #referenceType
+    | baseType #ownerType
+    ;
+
+baseType
     : primitiveType
     ;
     
