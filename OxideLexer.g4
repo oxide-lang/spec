@@ -66,6 +66,10 @@ STATIC:        'static';
 // Declarations
 CLASS:         'class';
 
+// Temp
+IF:            'if';
+ELSE:          'else';
+
 
 // --- OXIDE END ---
 
