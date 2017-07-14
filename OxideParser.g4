@@ -5,18 +5,44 @@ options {
 }
 
 entry
-    : namespaceOrType* EOF
+    : bodyElement* EOF
     ;
     
- namespaceOrType
-    : namespaceDefinition
+bodyElement
+    : namespace
+    | function
     ;
  
- namespaceDefinition
-    : NAMESPACE qualifiedName '{' '}'
+namespace
+    : NAMESPACE qualifiedName '{' bodyElement* '}'
     ;
  
- qualifiedName
+function
+    : access=(PUBLIC | PRIVATE) type identifier '(' parameterList? ')' functionBody
+    ;
+
+parameterList
+    : parameter (',' parameter)*
+    ;
+ 
+parameter
+    : type 
+    ;
+ 
+functionBody
+    : ';' #emptyFunctionBody
+    ;
+
+type
+    : primitiveType
+    ;
+    
+primitiveType
+    : VOID
+    | INT
+    ;
+
+qualifiedName
     : identifier ('.' identifier)*
     ;
     
