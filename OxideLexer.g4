@@ -34,6 +34,7 @@ NAMESPACE:     'namespace';
 USING:         'using';
 
 // Types
+NULL:          'null';
 VOID:          'void';
 BOOL:          'bool';
 BYTE:          'byte';
@@ -66,7 +67,13 @@ STATIC:        'static';
 // Declarations
 CLASS:         'class';
 
-// Temp
+// Inheritance
+NEW:           'new';
+THIS:          'this';
+SUPER:         'super';
+
+
+// Loops/Ifs
 IF:            'if';
 ELSE:          'else';
 
