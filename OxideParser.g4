@@ -39,11 +39,10 @@ block
     ;
 
 statement
-    : ifStatement
-    ;
-
-ifStatement
-    : IF '(' expression ')' statementBody
+    : ';' #emptyStatement
+    | expression ';' #expressionStatement
+    | IF '(' expression ')' statementBody #ifStatement
+    | RETURN expression? ';' #returnStatement
     ;
 
 statementBody
@@ -54,7 +53,7 @@ statementBody
 expression
     : conditionalExpression
     ;
- 
+
 conditionalExpression
     : conditionalOrExpression '?' expression ':' expression
     | conditionalOrExpression

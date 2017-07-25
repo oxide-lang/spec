@@ -73,10 +73,10 @@ THIS:          'this';
 SUPER:         'super';
 
 
-// Loops/Ifs
+// Statements
 IF:            'if';
 ELSE:          'else';
-
+RETURN:        'return';
 
 // --- OXIDE END ---
 
