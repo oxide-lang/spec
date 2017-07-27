@@ -9,10 +9,15 @@ entry
     ;
     
 bodyElement
-    : namespace
+    : using
+    | namespace
     | function
     ;
- 
+
+using
+    : USING qualifiedName ';'
+    ;
+
 namespace
     : NAMESPACE qualifiedName '{' bodyElement* '}'
     ;
