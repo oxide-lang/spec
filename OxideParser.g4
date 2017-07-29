@@ -60,58 +60,58 @@ expression
     ;
 
 conditionalExpression
-    : conditionalOrExpression '?' expression ':' expression
-    | conditionalOrExpression
+    : conditionalOrExpression '?' expression ':' expression #realConditionalExpression
+    | conditionalOrExpression #passthroughConditionalExpression
     ;
 
 conditionalOrExpression
-    : conditionalOrExpression OP_OR conditionalAndExpression
-    | conditionalAndExpression
+    : conditionalOrExpression OP_OR conditionalAndExpression #realConditionalOrExpression
+    | conditionalAndExpression #passthroughConditionalOrExpression
     ;
 
 conditionalAndExpression
-    : conditionalAndExpression OP_AND inclusiveOrExpression
-    | inclusiveOrExpression
+    : conditionalAndExpression OP_AND inclusiveOrExpression #realConditionalAndExpression
+    | inclusiveOrExpression #passthroughConditionalAndExpression
     ;
 
 inclusiveOrExpression
-    : inclusiveOrExpression '|' exclusiveOrExpression
-    | exclusiveOrExpression
+    : inclusiveOrExpression '|' exclusiveOrExpression #realInclusiveOrExpression
+    | exclusiveOrExpression #passthroughInclusiveOrExpression
     ;
 
 exclusiveOrExpression
-    : exclusiveOrExpression '^' andExpression
-    | andExpression
+    : exclusiveOrExpression '^' andExpression #realExclusiveOrExpression
+    | andExpression #passthroughExclusiveOrExpression
     ;
 
 andExpression
-    : andExpression '&' equalityExpression
-    | equalityExpression
+    : andExpression '&' equalityExpression #realAndExpression
+    | equalityExpression #passthroughAndExpression
     ;
 
 equalityExpression
-    : equalityExpression op=(OP_EQ | OP_NE) relationalExpression
-    | relationalExpression
+    : equalityExpression op=(OP_EQ | OP_NE) relationalExpression #realEqualityExpression
+    | relationalExpression #passthroughEqualityExpression
     ;
 
 relationalExpression
-    : relationalExpression op=('<' | '>' | '<=' | '>=') shiftExpression
-    | shiftExpression
+    : relationalExpression op=('<' | '>' | '<=' | '>=') shiftExpression #realRelationalExpression
+    | shiftExpression #passthroughRelationalExpression
     ;
 
 shiftExpression
-    : shiftExpression ('<<' | rightShift) additiveExpression
-    | additiveExpression
+    : shiftExpression ('<<' | rightShift) additiveExpression #realShiftExpression
+    | additiveExpression #passthroughShiftExpression
     ;
 
 additiveExpression
-    : additiveExpression op=('+' | '-') multiplicativeExpression
-    | multiplicativeExpression 
+    : additiveExpression op=('+' | '-') multiplicativeExpression #realAdditiveExpression
+    | multiplicativeExpression #passthroughAdditiveExpression
     ;
 
 multiplicativeExpression
-    : multiplicativeExpression op=('*' | '/' | '%')  unaryExpression
-    | unaryExpression
+    : multiplicativeExpression op=('*' | '/' | '%')  unaryExpression #realMultiplicativeExpression
+    | unaryExpression #passthroughMultiplicativeExpression
     ;
 
 unaryExpression
