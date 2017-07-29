@@ -141,7 +141,7 @@ primaryExpressionStart
     | identifier #identifierPrimaryExpressionStart
     | OPEN_PARENS expression CLOSE_PARENS #bracketPrimaryExpressionStart
     | primitiveType #primitivePrimaryExpressionStart
-    | LITERAL_ACCESS #literalPrimaryExpressionStart
+    | LITERAL_ACCESS #literalAccessPrimaryExpressionStart
     | THIS #thisPrimaryExpressionStart
     | SUPER #superPrimaryExpressionStart
     | NEW baseType OPEN_PARENS argumentList? CLOSE_PARENS #newObjectPrimaryExpressionStart
