@@ -221,16 +221,36 @@ rightShiftAssignment
 literal
     : booleanLiteral
     | stringLiteral
-    | INTEGER_LITERAL
-    | HEX_INTEGER_LITERAL
-    | REAL_LITERAL
-    | CHARACTER_LITERAL
-    | NULL
+    | integerLiteral
+    | hexIntegerLiteral
+    | realLiteral
+    | characterLiteral
+    | nullLiteral
     ;
 
 booleanLiteral
-    : TRUE
-    | FALSE
+    : TRUE #trueBooleanLiteral
+    | FALSE #falseBooleanLiteral
+    ;
+
+integerLiteral
+    : INTEGER_LITERAL
+    ;
+
+hexIntegerLiteral
+    : HEX_INTEGER_LITERAL
+    ;
+
+realLiteral
+    : REAL_LITERAL
+    ;
+
+characterLiteral
+    : CHARACTER_LITERAL
+    ;
+
+nullLiteral
+    : NULL
     ;
 
 stringLiteral
